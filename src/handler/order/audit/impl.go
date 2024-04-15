@@ -86,6 +86,7 @@ func ExecuteOrder(u *Confirm, user string) common.Resp {
 			Time:     time.Now().Format("2006-01-02 15:04"),
 			Action:   i18n.DefaultLang.Load(i18n.ORDER_EXECUTE_STATE),
 		})
+		lib.MessagePush(u.WorkId, 1, "")
 		return common.SuccessPayLoadToMessage(i18n.DefaultLang.Load(i18n.ORDER_EXECUTE_STATE))
 	}
 	return common.ERR_RPC
